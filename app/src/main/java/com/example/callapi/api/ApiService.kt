@@ -11,8 +11,9 @@ import retrofit2.http.Query
 
 interface ApiService {
     //    http://apilayer.net/api/live?access_key=843d4d34ae72b3882e3db642c51e28e6&currencies=VND&source=USD&format=1
+//    Create object
     companion object {
-        val retrofit = Retrofit.Builder()
+        val retrofit: ApiService = Retrofit.Builder()
             .baseUrl("http://apilayer.net/")
             .addConverterFactory(
                 GsonConverterFactory.create(
@@ -22,7 +23,7 @@ interface ApiService {
             .build()
             .create(ApiService::class.java)
     }
-
+//    get key API
     @GET("api/live")
     fun convertUsdToVnd(
         @Query("access_key") access_key: String,

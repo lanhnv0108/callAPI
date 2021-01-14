@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             "USD",
             1
         ).enqueue(object : Callback<Currency> {
+//            Call success
             override fun onResponse(call: Call<Currency>?, response: Response<Currency>?) {
                 Toast.makeText(this@MainActivity, "Call API Success", Toast.LENGTH_SHORT).show()
                 val currency: Currency = response?.body()!!
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     text.text = currency.terms
                 }
             }
-
+//            When call fail
             override fun onFailure(call: Call<Currency>?, t: Throwable?) {
                 TODO("Not yet implemented")
             }
